@@ -160,3 +160,4 @@ if __name__ == '__main__':
         print("Try: ", counter)
         print(m)
         print(m.score)
+

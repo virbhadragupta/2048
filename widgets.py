@@ -17,7 +17,6 @@ class Game(QtWidgets.QWidget):
         self.score.setAlignment(QtCore.Qt.AlignCenter)
 
         self.grid = QtWidgets.QGridLayout()
-
         self.index_holder = [[0] * self.matrix.size for _ in range(self.matrix.size)]
 
         for i in range(self.matrix.size):
