@@ -38,9 +38,14 @@ class Game(QtWidgets.QWidget):
             self.right_move()
         elif event.key() == QtCore.Qt.Key_Left:
             self.left_move()
+        elif event.key() == (QtCore.Qt.Key_Control and QtCore.Qt.Key_Z):
+            self.undo()
         self.refresh()
         self.score.setText("Score: {}".format(self.matrix.score))
         event.accept()
+
+    def undo(self):
+        self.matrix.undo()
 
     def left_move(self):
         self.matrix.left()
