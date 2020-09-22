@@ -12,6 +12,10 @@ class Game(QtWidgets.QWidget):
         self.setup()
 
     def setup(self):
+        """
+        TODO
+        :return:
+        """
         self.main_layout = QtWidgets.QVBoxLayout(self)
         self.score = QtWidgets.QLabel("Score: 0")
         self.score.setAlignment(QtCore.Qt.AlignCenter)
@@ -30,6 +34,11 @@ class Game(QtWidgets.QWidget):
         self.main_layout.addLayout(self.grid, QtCore.Qt.AlignCenter)
 
     def keyPressEvent(self, event):
+        """
+        TODO
+        :param event:
+        :return:
+        """
         if event.key() == QtCore.Qt.Key_Up:
             self.up_move()
         elif event.key() == QtCore.Qt.Key_Down:
@@ -45,21 +54,45 @@ class Game(QtWidgets.QWidget):
         event.accept()
 
     def undo(self):
+        """
+        TODO
+        :return:
+        """
         self.matrix.undo()
 
     def left_move(self):
+        """
+        TODO
+        :return:
+        """
         self.matrix.left()
 
     def right_move(self):
+        """
+        TODO
+        :return:
+        """
         self.matrix.right()
 
     def up_move(self):
+        """
+        TODO
+        :return:
+        """
         self.matrix.up()
 
     def down_move(self):
+        """
+        TODO
+        :return:
+        """
         self.matrix.down()
 
     def refresh(self):
+        """
+        TODO
+        :return:
+        """
         for row in range(self.matrix.size):
             for col in range(self.matrix.size):
                 self.index_holder[row][col].setText(str(self.matrix.matrix[row][col]))
@@ -73,6 +106,11 @@ class Number(QtWidgets.QLabel):
         self.setText(self.number)
 
     def setText(self, text):
+        """
+        TODO
+        :param text:
+        :return:
+        """
         text = str(text)
         super(Number, self).setText(text)
         if text == "0" or text == "":
