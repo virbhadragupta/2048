@@ -1,0 +1,77 @@
+QWidget {
+    background-color: #333333;
+}
+
+QPushButton {
+    background-color: red;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: green;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+
+
+QLabel [numVal="0"] {
+    color: #000000;
+    background-color: #dadbca;
+}
+
+QLabel [numVal="2"] {
+    color: "#daeddf";
+    background-color: "#011c08";
+}
+
+QLabel [numVal="4"] {
+    color: green;
+    background-color: yellow;
+}
+
+QLabel [numVal="8"] {
+    color: #000000;
+    background-color: #ffe47a;
+}
+
+QLabel [numVal="16"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="32"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="64"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="128"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="256"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="512"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="1024"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [numVal="2048"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+

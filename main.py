@@ -9,6 +9,7 @@ class Matrix(object):
     """
     TODO
     """
+
     def __init__(self):
         self.dimension = settings.SIZE
         self.matrix = self.add_new(self._new_matrix())
@@ -62,14 +63,12 @@ class Matrix(object):
             self.memory.append(matrix)
 
     def undo(self):
-        """
-        TODO
-        :return:
-        """
         for idx, matrix in enumerate(reversed(self.memory)):
             if matrix:
                 self.matrix = matrix
-                self.matrix[settings.UNDO_BACKUP - idx - 1] = 0
+                self.memory[settings.UNDO_BACKUP - idx - 1] = 0
+                if self.is_end:
+                    self.is_end = False
                 return True
         else:
             return False
@@ -183,26 +182,23 @@ class Matrix(object):
                     return True
         return False
 
-    def is_valid_move(self, matrix):
-        """
-        TODO
-        :param matrix:
-        :return:
-        """
-        if self.is_column_filled(matrix, self.size - 1):
-            for row in matrix:
-                print("row:", row)
-                valid_numbers = []
-                for value in row:
-                    if value:
-                        valid_numbers.append(value)
-                print ("valid_numbers: ", valid_numbers)
-                print("Tst: ", len(set(valid_numbers)) , len(valid_numbers))
-                if not len(list(groupby(valid_numbers))) == len(valid_numbers):
-
-                    return True
-        else:
+    def is_row_shift_able(self, row):
+        if not any(row):
+            return False
+        func = lambda x: x if x[-1] else x[0:-1] if x[-1] else func(x[0:-1])
+        valid = func(row)
+        if 0 in valid:
             return True
+        if not row[0]:
+            return True
+        if not len(valid) == len(list(groupby(valid))):
+            return True
+        return False
+
+    def is_valid_move(self, matrix):
+        for row in range(self.size):
+            if self.is_row_shift_able(matrix[row]):
+                return True
 
     def is_column_filled(self, matrix, column):
         """
@@ -233,7 +229,9 @@ class Matrix(object):
             self.check_end(matrix)
             if not self.is_end:
                 matrix = self.add_new(matrix)
+            self.backup(self.matrix)
             self.matrix = matrix
+        self.check_end(matrix)
 
     def left(self):
         """
@@ -249,7 +247,9 @@ class Matrix(object):
             self.check_end(matrix)
             if not self.is_end:
                 matrix = self.add_new(matrix)
+            self.backup(self.matrix)
             self.matrix = matrix
+        self.check_end(matrix)
 
     def up(self):
         """
@@ -267,7 +267,9 @@ class Matrix(object):
             self.check_end(matrix)
             if not self.is_end:
                 matrix = self.add_new(matrix)
+            self.backup(self.matrix)
             self.matrix = matrix
+        self.check_end(matrix)
 
     def down(self):
         """
@@ -287,7 +289,9 @@ class Matrix(object):
             self.check_end(matrix)
             if not self.is_end:
                 matrix = self.add_new(matrix)
+            self.backup(self.matrix)
             self.matrix = matrix
+        self.check_end(matrix)
 
     def __repr__(self):
         return "{}".format(pformat(self.matrix))
@@ -313,4 +317,3 @@ if __name__ == '__main__':
     #     print("Try: ", counter)
     #     print(m)
     #     print(m.score)
-

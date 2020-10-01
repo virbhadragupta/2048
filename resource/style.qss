@@ -1,0 +1,62 @@
+
+QLabel [number="0"] {
+    color: #000000;
+    background-color: #dadbca;
+}
+
+QLabel [number="2"] {
+    color: "#daeddf";
+    background-color: "#011c08";
+}
+
+QLabel [number="4"] {
+    color: #000000;
+    background-color: #f8faca;
+}
+
+QLabel [number="8"] {
+    color: #000000;
+    background-color: #ffe47a;
+}
+
+QLabel [number="16"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="32"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="64"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="128"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="256"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="512"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="1024"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+QLabel [number="2048"] {
+    color: #000000;
+    background-color: #000000;
+}
+
+
